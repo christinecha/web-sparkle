@@ -28,6 +28,9 @@ const transition = SPARKLE.getPrefixedStyle('transition')
 // resize-scroll-handler
 const handler = new SPARKLE.ResizeScrollHandler()
 handler.addToHandler('resize', myFunction)
+
+// scrolled-past
+new SPARKLE.ScrolledPast(200)
 ```
 
 Or you can go to each link below and install them separately. Up to you.
@@ -59,16 +62,6 @@ A super simple method to grab the correct (prefixed or not) style property name 
 
 ---
 
-### mixins-less | mixins-scss
-Clean up your CSS with some fancy new mixins. Available for LESS and SCSS, because I'm nice.
-
-🏋 Performance  
-🏆 Visual Polish  
-🎪 Animation  
-💄 Code Style
-
----
-
 ### [resize-scroll-handler](https://github.com/christinecha/web-sparkle/tree/master/packages/resize-scroll-handler)
 No more long frames. Stop repainting the browser all the time, and only fire window events once.
 
@@ -76,7 +69,7 @@ No more long frames. Stop repainting the browser all the time, and only fire win
 
 ---
 
-### scroll-watcher
+### [scrolled-past](https://github.com/christinecha/web-sparkle/tree/master/packages/scrolled-past)
 Implement easy-peasy CSS-based scroll-triggered animation (or whatever you want).
 
 🏋 Performance  

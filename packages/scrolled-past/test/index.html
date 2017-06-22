@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+  </head>
+  <body>
+    <style>
+      body {
+        text-align: center;
+        margin: 0 0;
+        font-family: 'Helvetica', sans-serif;
+      }
+
+      .row { padding: 100px 20px; }
+      .row:nth-child(odd) { background-color: #eee; }
+      .row:nth-child(even) { background-color: #ddd; }
+
+      [data-scrolled-past] {
+        transition: background-color 500ms ease-in-out;
+      }
+
+      [data-scrolled-past="true"]:nth-child(odd) { background-color: #a1deed; }
+      [data-scrolled-past="true"]:nth-child(even) { background-color: #73cde2; }
+    </style>
+
+    <div id="content"></div>
+
+    <script>
+      // Just make some content so the frame scrolls
+      var innerHTML = ''
+
+      for (var i = 0; i < 200; i++) {
+        innerHTML += '<div class="row" data-scrolled-past="false">Row ' + i + '</div>'
+      }
+
+      document.getElementById('content').innerHTML = innerHTML
+    </script>
+
+
+    <script src="./bundle.js"></script>
+  </body>
+</html>

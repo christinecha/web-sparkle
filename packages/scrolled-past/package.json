@@ -1,7 +1,7 @@
 {
-  "name": "web-sparkle",
+  "name": "scrolled-past",
   "version": "1.0.0",
-  "description": "A toolbox of frontend web development modules to add some ✨  to your website.",
+  "description": "Implement easy-peasy CSS-based scroll-triggered changes (animation, etc.).",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
@@ -14,14 +14,10 @@
     "url": "git+https://github.com/christinecha/web-sparkle.git"
   },
   "keywords": [
-    "web",
-    "frontend",
     "css",
-    "finesse",
-    "sparkle",
-    "website",
-    "design",
-    "performance"
+    "scroll",
+    "animation",
+    "watcher"
   ],
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -30,14 +26,10 @@
     "webpack-dev-server": "^1.16.1"
   },
   "dependencies": {
-    "cross-browser-resize": "^1.0.3",
-    "css-scroll": "^1.0.0",
-    "get-prefixed-style": "^1.0.0",
     "resize-scroll-handler": "^1.0.0",
-    "scrolled-past": "^1.0.0",
     "webpack": "^2.6.1"
   },
-  "author": "ccha <ccha@squarespace.com> (https://stash.nyc.squarespace.net/users/ccha)",
+  "author": "christinecha <hello@christinecha.com> (https://www.christinecha.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/christinecha/web-sparkle/issues"
