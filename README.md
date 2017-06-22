@@ -11,8 +11,8 @@ Eliminate unnecessary resize event handling on mobile browsers.
 
 ---
 
-### css-scroll
-Forget that jittery JS-powered animated scroll. Get it buttery smooth with some CSS magic.
+### [css-scroll](https://github.com/christinecha/web-sparkle/tree/master/packages/css-scroll)
+Forget that jittery JS-powered animated scroll. Get it buttery smooth (and super performant!) with some CSS magic.
 
 🏆 Visual Polish  
 🎪 Animation
