@@ -36,7 +36,7 @@ Clean up your CSS with some fancy new mixins. Available for LESS and SCSS, becau
 
 ---
 
-### event-handler
+### [resize-scroll-handler](https://github.com/christinecha/web-sparkle/tree/master/packages/resize-scroll-handler)
 No more long frames. Stop repainting the browser all the time, and only fire window events once.
 
 🏋 Performance  
