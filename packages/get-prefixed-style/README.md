@@ -1,8 +1,5 @@
 # get-prefixed-style
-### part of [web-sparkle](https://github.com/christinecha/web-sparkle)
-
----
-
+### A package within [web-sparkle](https://github.com/christinecha/web-sparkle).
 A super simple method to grab the correct (prefixed or not) style property name for your browser.
 
 ## Usage
@@ -50,6 +47,7 @@ npm start
 ## Credits
 This readme is maintained by [hello@christinecha.com](mailto:hello@christinecha.com).
 
+---
 
 ## License
 MIT
