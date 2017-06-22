@@ -5,6 +5,33 @@ Here's some lightweight modules to add some ✨ sparkle ✨ (read: finesse) to y
 Use each of the packages below to improve important details like website performance,
 code style/quality, visual polish, and animations.
 
+### Usage
+You can install everything all at once (since it's quite small anyway):
+
+```sh
+$ npm install web-sparkle
+```
+
+```js
+const ✨ = require('web-sparkle')
+
+// cross-browser-resize
+✨.crossBrowserResize.addListener(myFunction)
+✨.crossBrowserResize.removeListener(myFunction)
+
+// css-scroll
+✨.CSSScroll(2000, 800, document.body)
+
+// get-prefixed-style
+const transition = ✨.getPrefixedStyle('transition')
+
+// resize-scroll-handler
+const handler = new ✨.ResizeScrollHandler()
+handler.addToHandler('resize', myFunction)
+```
+
+Or you can go to each link below and install them separately. Up to you.
+
 Built with 💛 by (Christine) Cha. Pull requests welcome!
 
 ---

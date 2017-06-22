@@ -1,10 +1,13 @@
 {
   "name": "web-sparkle",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A toolbox of frontend web development modules to add some ✨  to your website.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "dev": "webpack-dev-server",
+    "start": "open http://localhost:8080/test/index.html",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,19 @@
     "design",
     "performance"
   ],
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "dependencies": {
+    "cross-browser-resize": "^1.0.3",
+    "css-scroll": "^1.0.0",
+    "get-prefixed-style": "^1.0.0",
+    "resize-scroll-handler": "^1.0.0",
+    "webpack": "^2.6.1"
+  },
   "author": "ccha <ccha@squarespace.com> (https://stash.nyc.squarespace.net/users/ccha)",
   "license": "MIT",
   "bugs": {
