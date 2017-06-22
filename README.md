@@ -1,5 +1,11 @@
 # ✨ Web Sparkle ✨
-A toolbox for adding some ✨ sparkle ✨ (read: finesse) to your website.
+Cha's magic toolbox of web sparkles.
+
+Here's some lightweight modules to add some ✨ sparkle ✨ (read: finesse) to your websites.
+Use each of the packages below to improve important details like website performance,
+code style/quality, visual polish, and animations.
+
+Built with 💛 by Cha. Pull requests welcome!
 
 ---
 
