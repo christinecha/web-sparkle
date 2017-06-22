@@ -19,13 +19,6 @@ Forget that jittery JS-powered animated scroll. Get it buttery smooth (and super
 
 ---
 
-### event-handler
-No more long frames. Stop repainting the browser all the time, and only fire window events once.
-
-🏋 Performance  
-
----
-
 ### [get-prefixed-style](https://github.com/christinecha/web-sparkle/tree/master/packages/get-prefixed-style)
 A super simple method to grab the correct (prefixed or not) style property name for your browser.
 
@@ -40,6 +33,13 @@ Clean up your CSS with some fancy new mixins. Available for LESS and SCSS, becau
 🏆 Visual Polish  
 🎪 Animation  
 💄 Code Style
+
+---
+
+### event-handler
+No more long frames. Stop repainting the browser all the time, and only fire window events once.
+
+🏋 Performance  
 
 ---
 

@@ -1,0 +1,38 @@
+{
+  "name": "resize-scroll-handler",
+  "version": "1.0.0",
+  "description": "No more long frames. Stop repainting the browser all the time, and only fire window events once.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server",
+    "start": "open http://localhost:8080/test/index.html",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christinecha/web-sparkle.git"
+  },
+  "keywords": [
+    "css",
+    "scroll",
+    "animation",
+    "event",
+    "performance"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "dependencies": {
+    "webpack": "^2.6.1"
+  },
+  "author": "christinecha <hello@christinecha.com> (https://www.christinecha.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christinecha/web-sparkle/issues"
+  },
+  "homepage": "https://github.com/christinecha/web-sparkle#readme"
+}
