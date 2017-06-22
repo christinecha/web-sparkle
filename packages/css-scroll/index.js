@@ -1,13 +1,7 @@
-const transitionend = require('./transition-end')
+const getPrefixedStyle = require('get-prefixed-style')
 
-
-const getPrefixedProperties = () => {
-  if ('transition' in document.body.style)       return { transition: 'transition',       transform: 'transform' }
-  if ('WebkitTransition' in document.body.style) return { transition: 'WebkitTransition', transform: 'WebkitTransform' }
-  if ('MozTransition' in document.body.style)    return { transition: 'MozTransition',    transform: 'MozTransform' }
-  if ('MsTransition' in document.body.style)     return { transition: 'MsTransition',     transform: 'MsTransform' }
-  if ('OTransition' in document.body.style)      return { transition: 'OTransition',      transform: 'OTransform' }
-}
+const transition = getPrefixedStyle('transition')
+const transform = getPrefixedStyle('transform')
 
 const disableScroll = (e) => {
   e.preventDefault()
@@ -22,20 +16,14 @@ const disableScroll = (e) => {
   * in the opposite direction to fake a "scroll" motion.
   *
   * @param target {Number}            | A window.pageYOffset value you'd like to end up at.
-  * @param scrollElement {DOMElement} | The parent container that the fake scroll will be applied to.
   * @param duration {Number}          | The length of the transition in milliseconds.
+  * @param scrollElement {DOMElement} | The parent container that the fake scroll will be applied to.
 **/
 
-const CSSScroll = (target, scrollElement, duration = 500) => {
+const CSSScroll = (target, duration = 500, scrollElement = document.body) => {
   return new Promise((resolve, reject) => {
-    const props = getPrefixedProperties()
-    if (!props) return
-
-    const { transition, transform } = props
 
     const distance = window.pageYOffset - target
-
-    if (!scrollElement) scrollElement = document.body
 
     scrollElement.style[transition] = `${transform} ${duration}ms cubic-bezier(0.694, 0.0482, 0.335, 1.000)`
     scrollElement.style[transform] = `translate3d(0, ${distance}px, 0)`
@@ -45,13 +33,12 @@ const CSSScroll = (target, scrollElement, duration = 500) => {
       if (e.target !== scrollElement) return
       if (e.propertyName !== transform) return
 
-      scrollElement.classList.add('no-transitions')
-      scrollElement.style[transition] = null
+      scrollElement.style[transition] = 'none !important'
       scrollElement.style[transform] = null
 
       window.scrollTo(0, target)
 
-      scrollElement.classList.remove('no-transitions')
+      scrollElement.style.removeProperty(transition)
 
       resolve()
 
