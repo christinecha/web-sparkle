@@ -1,4 +1,4 @@
-#web-sparkle/cross-browser-resize
+# web-sparkle/cross-browser-resize
 ------------------------------
 
 Triggering resize when there is an intended resize. This is necessary because on mobile browsers, scrolling can trigger changes in the address bar height, which will trigger additional 'resize' events when unnecessary.
