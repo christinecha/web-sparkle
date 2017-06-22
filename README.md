@@ -13,20 +13,20 @@ $ npm install web-sparkle
 ```
 
 ```js
-const ✨ = require('web-sparkle')
+const SPARKLE = require('web-sparkle')
 
 // cross-browser-resize
-✨.crossBrowserResize.addListener(myFunction)
-✨.crossBrowserResize.removeListener(myFunction)
+SPARKLE.crossBrowserResize.addListener(myFunction)
+SPARKLE.crossBrowserResize.removeListener(myFunction)
 
 // css-scroll
-✨.CSSScroll(2000, 800, document.body)
+SPARKLE.CSSScroll(2000, 800, document.body)
 
 // get-prefixed-style
-const transition = ✨.getPrefixedStyle('transition')
+const transition = SPARKLE.getPrefixedStyle('transition')
 
 // resize-scroll-handler
-const handler = new ✨.ResizeScrollHandler()
+const handler = new SPARKLE.ResizeScrollHandler()
 handler.addToHandler('resize', myFunction)
 ```
 

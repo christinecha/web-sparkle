@@ -3,11 +3,11 @@ const CSSScroll           = require('css-scroll')
 const getPrefixedStyle    = require('get-prefixed-style')
 const ResizeScrollHandler = require('resize-scroll-handler')
 
-const ✨ = {
+const SPARKLE = {
   crossBrowserResize,
   CSSScroll,
   getPrefixedStyle,
   ResizeScrollHandler
 }
 
-module.exports = ✨
+module.exports = SPARKLE

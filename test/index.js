@@ -1,6 +1,6 @@
-const ✨ = require('web-sparkle')
+const SPARKLE = require('../index')
 
-console.log('cross-browser-resize', ✨.crossBrowserResize)
-console.log('css-scroll', ✨.CSSScroll)
-console.log('get-prefixed-style', ✨.getPrefixedStyle)
-console.log('resize-scroll-handler', ✨.ResizeScrollHandler)
+console.log('cross-browser-resize', SPARKLE.crossBrowserResize)
+console.log('css-scroll', SPARKLE.CSSScroll)
+console.log('get-prefixed-style', SPARKLE.getPrefixedStyle)
+console.log('resize-scroll-handler', SPARKLE.ResizeScrollHandler)
