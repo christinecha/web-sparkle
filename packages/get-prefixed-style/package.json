@@ -1,0 +1,31 @@
+{
+  "name": "get-prefixed-style",
+  "version": "1.0.0",
+  "description": "A super simple method to grab the correct (prefixed or not) style property name for your browser.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christinecha/web-sparkle.git"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server",
+    "start": "open http://localhost:8080/test/index.html",
+    "watch": "webpack --watch"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "keywords": [
+    "cross-browser",
+    "resize",
+    "event",
+    "window",
+    "callback",
+    "mobile",
+    "adaptive"
+  ],
+  "author": "christinecha <hello@christinecha.com> (https://www.christinecha.com)",
+  "license": "MIT"
+}

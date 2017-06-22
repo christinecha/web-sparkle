@@ -1,5 +1,7 @@
-# web-sparkle/cross-browser-resize
-------------------------------
+# cross-browser-resize
+### part of [web-sparkle](https://github.com/christinecha/web-sparkle)
+
+---
 
 Triggering resize when there is an intended resize. This is necessary because on mobile browsers, scrolling can trigger changes in the address bar height, which will trigger additional 'resize' events when unnecessary.
 
@@ -12,7 +14,7 @@ With this module, 'resize' should ONLY be triggered when you:
 ## Usage
 
 ````sh
-$ npm install web-sparkle/cross-browser-resize
+$ npm install cross-browser-resize
 ````
 
 ````js

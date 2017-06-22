@@ -1,0 +1,25 @@
+{
+  "name": "css-scroll",
+  "version": "1.0.0",
+  "description": "Forget that jittery JS-powered animated scroll. Get it buttery smooth with some CSS magic.",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christinecha/web-sparkle.git"
+  },
+  "keywords": [
+    "css",
+    "scroll",
+    "animation",
+    "event",
+    "performance"
+  ],
+  "author": "christinecha <hello@christinecha.com> (https://www.christinecha.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christinecha/web-sparkle/issues"
+  },
+  "homepage": "https://github.com/christinecha/web-sparkle#readme"
+}
