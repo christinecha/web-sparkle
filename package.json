@@ -1,0 +1,29 @@
+{
+  "name": "web-sparkle",
+  "version": "0.0.1",
+  "description": "A toolbox of frontend web development modules to add some ✨  to your website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christinecha/web-sparkle.git"
+  },
+  "keywords": [
+    "web",
+    "frontend",
+    "css",
+    "finesse",
+    "sparkle",
+    "website",
+    "design",
+    "performance"
+  ],
+  "author": "ccha <ccha@squarespace.com> (https://stash.nyc.squarespace.net/users/ccha)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christinecha/web-sparkle/issues"
+  },
+  "homepage": "https://github.com/christinecha/web-sparkle#readme"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "cross-browser-resize",
+  "version": "0.0.1",
+  "description": "Eliminate unnecessary resize event handling on mobile browsers.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server",
+    "lint": "eslint index.js",
+    "start": "open http://localhost:8080/example/index.html",
+    "watch": "webpack --watch"
+  },
+  "devDependencies": {
+    "eslint": "^2.0.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "keywords": [
+    "cross-browser",
+    "resize",
+    "event",
+    "window",
+    "callback",
+    "mobile",
+    "adaptive"
+  ],
+  "author": "christinecha <hello@christinecha.com> (https://www.christinecha.com)",
+  "license": "MIT"
+}
