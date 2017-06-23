@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+  </head>
+  <body>
+    <style>
+      .container {
+        height: 80vh;
+        background-color: #DDD;
+        font-family: 'Helvetica', sans-serif;
+        font-size: 14px;
+        line-height: 1.4em;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+    </style>
+
+    <div class="container vh-for-mobile">
+      Usually, this container would flicker between different heights on scroll
+      in mobile browsers, but now, it should be static. (And recalculate only
+      on orientationchange.)
+    </div>
+
+    <script src="../dist/test.js"></script>
+  </body>
+</html>

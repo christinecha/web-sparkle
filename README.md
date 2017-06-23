@@ -31,6 +31,16 @@ handler.addToHandler('resize', myFunction)
 
 // scrolled-past
 new SPARKLE.ScrolledPast(200)
+
+// universal-gallery
+new SPARKLE.UniversalGallery({
+  galleryNode: document.getElementById('gallery'),
+  childSelector: '.slide',
+  numOfClones: 1,
+  shouldAutoplay: true,
+  slideSpeed: 3000,
+  handleChange: myFunction
+})
 ```
 
 Or you can go to each link below and install them separately. Up to you.
@@ -78,8 +88,8 @@ Implement easy-peasy CSS-based scroll-triggered animation (or whatever you want)
 
 ---
 
-### universal-gallery
-Super generic base gallery that can be styled to pretty much any layout & animation you'll ever need.
+### [universal-gallery](https://github.com/christinecha/web-sparkle/tree/master/packages/universal-gallery)
+Super generic, unopinionated base gallery that can be styled to pretty much any layout & animation you'll ever need.
 
 🏋 Performance  
 🏆 Visual Polish  
@@ -87,7 +97,7 @@ Super generic base gallery that can be styled to pretty much any layout & animat
 
 ---
 
-### vh-for-mobile
+### [vh-for-mobile](https://github.com/christinecha/web-sparkle/tree/master/packages/vh-for-mobile)
 Using VH as a CSS unit in mobile browsers causes a lot of problems. Fix them.
 
 🏋 Performance  

@@ -1,7 +1,7 @@
 {
-  "name": "web-sparkle",
-  "version": "1.0.1",
-  "description": "A toolbox of frontend web development modules to add some ✨  to your website.",
+  "name": "universal-gallery",
+  "version": "1.0.0",
+  "description": "Super generic base gallery that can be styled to pretty much any layout & animation you'll ever need.",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
@@ -14,30 +14,24 @@
     "url": "git+https://github.com/christinecha/web-sparkle.git"
   },
   "keywords": [
-    "web",
-    "frontend",
     "css",
-    "finesse",
-    "sparkle",
-    "website",
-    "design",
-    "performance"
+    "gallery",
+    "animated",
+    "base",
+    "boilerplate"
   ],
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.0",
+    "babel-preset-es2015": "^6.3.13",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
   },
   "dependencies": {
-    "cross-browser-resize": "^1.0.3",
-    "css-scroll": "^1.0.0",
-    "get-prefixed-style": "^1.0.0",
     "resize-scroll-handler": "^1.0.0",
-    "scrolled-past": "^1.0.0",
     "webpack": "^2.6.1"
   },
-  "author": "ccha <ccha@squarespace.com> (https://stash.nyc.squarespace.net/users/ccha)",
+  "author": "christinecha <hello@christinecha.com> (https://www.christinecha.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/christinecha/web-sparkle/issues"

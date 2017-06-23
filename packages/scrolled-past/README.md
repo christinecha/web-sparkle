@@ -9,7 +9,7 @@ $ npm install scrolled-past
 ````
 
 ````js
-const ScrolledPast = require('../index')
+const ScrolledPast = require('scrolled-past')
 
 const getOffset = el => el.height * 0.5
 

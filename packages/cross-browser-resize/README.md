@@ -1,5 +1,6 @@
 # cross-browser-resize
 ### part of [web-sparkle](https://github.com/christinecha/web-sparkle)
+Eliminate unnecessary resize event handling on mobile browsers.
 
 ---
 

@@ -1,0 +1,29 @@
+{
+  "name": "vh-for-mobile",
+  "version": "1.0.0",
+  "description": "Using VH as a CSS unit in mobile browsers causes a lot of problems. Fix them.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christinecha/web-sparkle.git"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server",
+    "start": "open http://localhost:8080/test/index.html",
+    "watch": "webpack --watch"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "keywords": [
+    "cross-browser",
+    "mobile",
+    "adaptive",
+    "resize",
+    "performance"
+  ],
+  "author": "christinecha <hello@christinecha.com> (https://www.christinecha.com)",
+  "license": "MIT"
+}

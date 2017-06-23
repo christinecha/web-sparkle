@@ -1,0 +1,69 @@
+body {
+  margin: 0 0;
+}
+
+.gallery {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+}
+
+.slide {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Helvetica', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  opacity: 0;
+
+  transition: opacity 300ms ease-in-out;
+}
+
+.slide:nth-child(odd) {
+  background-color: #EEE;
+}
+
+.slide:nth-child(even) {
+  background-color: #DDD;
+}
+
+#gallery-1 .slide[data-arrival-index="0"] {
+  opacity: 1;
+}
+
+#gallery-2.is-initialized .slide {
+  transition: transform 500ms ease-in-out;
+}
+
+#gallery-2 .slide[data-arrival-index="0"],
+#gallery-2 .slide[data-arrival-index="1"],
+#gallery-2 .slide[data-departure-index="1"] {
+  opacity: 1;
+}
+
+#gallery-2 .slide[data-arrival-index="2"] {
+  transform: translate3d(205%, 0, 0);
+}
+
+#gallery-2 .slide[data-arrival-index="1"] {
+  transform: translate3d(105%, 0, 0);
+}
+
+#gallery-2 .slide[data-departure-index="1"] {
+  transform: translate3d(-105%, 0, 0);
+}
+
+#gallery-2 .slide[data-departure-index="2"] {
+  transform: translate3d(-205%, 0, 0);
+  transition: transform 500ms ease-in-out,
+              opacity 500ms step-end;
+}
