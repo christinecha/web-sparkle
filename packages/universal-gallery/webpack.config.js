@@ -2,7 +2,7 @@ module.exports = {
   watch: true,
   entry: {
     test: './test',
-    index: './'
+    index: './index'
   },
   output: {
     filename: '[name].js',
