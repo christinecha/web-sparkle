@@ -1,10 +1,13 @@
 module.exports = {
   watch: true,
-  entry: './test',
+  entry: {
+    test: './test',
+    index: './index'
+  },
   output: {
-    filename: 'bundle.js',
-    publicPath: '/test/',
-    path: './test'
+    filename: '[name].js',
+    publicPath: '/dist/',
+    path: __dirname + '/dist'
   },
   module: {
     loaders: [{
