@@ -41,6 +41,9 @@ new SPARKLE.UniversalGallery({
   slideSpeed: 3000,
   handleChange: myFunction
 })
+
+// vh-for-mobile
+new SPARKLE.VHForMobile()
 ```
 
 Or you can go to each link below and install them separately. Up to you.

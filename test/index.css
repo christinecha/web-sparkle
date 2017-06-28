@@ -1,0 +1,41 @@
+body {
+  margin: 0 0;
+}
+
+#gallery {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+}
+
+.slide {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Helvetica', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  opacity: 0;
+
+  transition: opacity 300ms ease-in-out;
+}
+
+.slide:nth-child(odd) {
+  background-color: #EEE;
+}
+
+.slide:nth-child(even) {
+  background-color: #DDD;
+}
+
+.slide[data-arrival-index="0"] {
+  opacity: 1;
+}

@@ -20,3 +20,16 @@ handler.addToHandler('resize', myFunction)
 
 // scrolled-past
 new SPARKLE.ScrolledPast(200)
+
+// universal-gallery
+new SPARKLE.UniversalGallery({
+  galleryNode: document.getElementById('gallery'),
+  childSelector: '.slide',
+  numOfClones: 1,
+  shouldAutoplay: true,
+  slideSpeed: 3000,
+  handleChange: myFunction
+})
+
+// vh-for-mobile
+new SPARKLE.VHForMobile()

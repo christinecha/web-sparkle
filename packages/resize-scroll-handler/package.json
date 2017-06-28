@@ -1,6 +1,6 @@
 {
   "name": "resize-scroll-handler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "No more long frames. Stop repainting the browser all the time, and only fire window events once.",
   "main": "dist/index.js",
   "scripts": {

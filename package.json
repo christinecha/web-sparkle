@@ -35,6 +35,8 @@
     "get-prefixed-style": "^1.0.0",
     "resize-scroll-handler": "^1.0.0",
     "scrolled-past": "^1.0.0",
+    "universal-gallery": "^1.0.0",
+    "vh-for-mobile": "^1.0.0",
     "webpack": "^2.6.1"
   },
   "author": "ccha <ccha@squarespace.com> (https://stash.nyc.squarespace.net/users/ccha)",
