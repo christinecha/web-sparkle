@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/example/";
+/******/ 	__webpack_require__.p = "/test/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -47,24 +47,31 @@
 	var crossBrowserResize = __webpack_require__(1);
 
 	// Log all triggered resize events so you can compare the difference
-	window.addEventListener('resize', function () {
+	window.addEventListener('resize', function() {
 	  console.log('resize');
-	});
+	})
 
 	// Log only the true cross-browser resize
 	function handleResize(e) {
 	  console.log('Really resized at', new Date().getTime());
 	}
 
+	// Log only the true cross-browser resize
+	function handleResize2(e) {
+	  console.log('Really resized 2 at', new Date().getTime());
+	}
+
 	var crossBrowserHandleResize = crossBrowserResize.addListener(handleResize);
+	var crossBrowserHandleResize2 = crossBrowserResize.addListener(handleResize2);
 
 	// To remove the event listener:
-	document.addEventListener('click', function () {
+	document.addEventListener('click', function() {
 	  crossBrowserResize.removeListener(crossBrowserHandleResize);
 
 	  // OR YOU CAN JUST:
 	  // window.removeEventListener(crossBrowserHandleResize);
 	});
+
 
 /***/ },
 /* 1 */
@@ -79,19 +86,25 @@
 	    - Resize your desktop browser
 	    - Re-orient your phone
 
-	  [ ccha@squarespace.com ] <3
+	  [ christinecha / hello@christinecha.com ] <3
 	**/
 
 	// You'll need these later to store window dimensions.
-	var initialInnerWidth;
-	var initialAvailHeight;
-	var initialOuterHeight;
+	var initialInnerWidth
+	var initialAvailHeight
+	var initialOuterHeight
+	var windowContext
+
+	// Is this thing reallllly a Window object?
+	function isWindow(obj) {
+	  return obj && obj.window === obj
+	}
 
 	// Store window dimensions.
 	function storeDimensionValues() {
-	  initialInnerWidth = window.innerWidth;
-	  initialAvailHeight = window.screen.availHeight;
-	  initialOuterHeight = window.outerHeight;
+	  initialInnerWidth = windowContext.innerWidth
+	  initialAvailHeight = windowContext.screen.availHeight
+	  initialOuterHeight = windowContext.outerHeight
 	}
 
 	/** Creates a modified version of your event handler.
@@ -99,20 +112,21 @@
 	  * @return {Function} crossBrowserResize | the modifed event handler
 	 **/
 	function getCrossBrowserResizeFn(fn) {
-	  return function (e) {
+	  return function(e) {
 
 	    // If all of these values are exactly the same, then we're running
 	    // into one of the weird mobile browser edge cases.
-	    if (window.innerWidth !== initialInnerWidth || window.screen.availHeight !== initialAvailHeight || window.outerHeight !== initialOuterHeight) {
-
-	      // Reset the values
-	      storeDimensionValues();
+	    if (
+	      windowContext.innerWidth !== initialInnerWidth ||
+	      windowContext.screen.availHeight !== initialAvailHeight ||
+	      windowContext.outerHeight !== initialOuterHeight
+	    ) {
 
 	      // Run the original function since it's not a false alarm.
 	      // Take that, iOS Safari!
-	      fn(e);
+	      fn(e)
 	    }
-	  };
+	  }
 	}
 
 	/** Creates a modified version of your event handler and attaches
@@ -120,26 +134,37 @@
 	  * @param {Function} fn | the event handler
 	  * @return {Function} crossBrowserResize | the modifed event handler
 	 **/
-	function addCrossBrowserResizeListener(fn) {
+	function addCrossBrowserResizeListener(fn, win) {
+	  if (!win) {
+	     win = window
+	  }
 
-	  var crossBrowserResize = getCrossBrowserResizeFn(fn);
+	  if (!windowContext && isWindow(win)) {
+	    windowContext = win
+	  }
+	  var crossBrowserResize = getCrossBrowserResizeFn(fn)
 
-	  window.addEventListener('resize', crossBrowserResize);
+	  windowContext.addEventListener('resize', crossBrowserResize)
 
-	  return crossBrowserResize;
+	  // Always make sure that `storeDimensionValues` is the last listener to be called.
+	  windowContext.removeEventListener('resize', storeDimensionValues)
+	  windowContext.addEventListener('resize', storeDimensionValues)
+
+	  return crossBrowserResize
 	}
 
 	/** Initialize property values and add the event listener to 'resize'.
 	  * @param {Function} fn | the event handler
 	 **/
 	function removeCrossBrowserResizeListener(fn) {
-	  window.removeEventListener('resize', fn);
+	  windowContext.removeEventListener('resize', fn)
 	}
 
 	module.exports = {
 	  addListener: addCrossBrowserResizeListener,
 	  removeListener: removeCrossBrowserResizeListener
-	};
+	}
+
 
 /***/ }
 /******/ ]);
