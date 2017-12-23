@@ -1,6 +1,6 @@
 # universal-gallery
 ### A package within [web-sparkle](https://github.com/christinecha/web-sparkle).
-Super generic, unopinionated base gallery that can be styled to pretty much any layout & animation you'll ever need.
+The last gallery you'll never need. View-agnostic.
 
 ## Usage
 
