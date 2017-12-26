@@ -4,11 +4,11 @@ const handler = new ResizeScrollHandler()
 const $resizeHeader = document.getElementById('resize-header')
 const $scrollHeader = document.getElementById('scroll-header')
 
-handler.addToHandler('resize', () => {
+handler.on('resize', () => {
   $resizeHeader.textContent = 'window dimensions: ' + handler.vw + ' x ' + handler.vh
 })
 
-handler.addToHandler('scroll', () => {
+handler.on('scroll', () => {
   $scrollHeader.textContent = 'window.pageYOffset: ' + handler.currentPageYOffset + 'px'
 })
 

@@ -83,7 +83,7 @@ class ResizeScrollHandler {
     this.requestResize = this.requestResize.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.handleResize = this.handleResize.bind(this);
-    this.addToHandler = this.addToHandler.bind(this);
+    this.on = this.on.bind(this);
 
     // States.
     this.isTicking = false;
@@ -144,7 +144,7 @@ class ResizeScrollHandler {
     this.currentPageYOffset = window.pageYOffset;
   }
 
-  addToHandler(type, fn) {
+  on(type, fn) {
     let fnName;
 
     if (type === 'resize') fnName = 'handleResize';else if (type === 'scroll') fnName = 'handleScroll';else throw Error('That event type is not handled here.');
@@ -171,11 +171,11 @@ const handler = new ResizeScrollHandler();
 const $resizeHeader = document.getElementById('resize-header');
 const $scrollHeader = document.getElementById('scroll-header');
 
-handler.addToHandler('resize', () => {
+handler.on('resize', () => {
   $resizeHeader.textContent = 'window dimensions: ' + handler.vw + ' x ' + handler.vh;
 });
 
-handler.addToHandler('scroll', () => {
+handler.on('scroll', () => {
   $scrollHeader.textContent = 'window.pageYOffset: ' + handler.currentPageYOffset + 'px';
 });
 

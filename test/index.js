@@ -16,7 +16,7 @@ const transition = SPARKLE.getPrefixedStyle('transition')
 
 // resize-scroll-handler
 const handler = new SPARKLE.ResizeScrollHandler()
-handler.addToHandler('resize', myFunction)
+handler.on('resize', myFunction)
 
 // scrolled-past
 new SPARKLE.ScrolledPast(200)

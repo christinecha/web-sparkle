@@ -16,14 +16,14 @@ const handler = new ResizeScrollHandler()
 // Add as many callbacks as you want without performing unnecessary
 // browser reflows or taking up extra memory. Woohoo!
 
-handler.addToHandler('resize', resizeCallback)
-handler.addToHandler('resize', anotherResizeCallback)
-handler.addToHandler('resize', yetAnotherResizeCallback)
+handler.on('resize', resizeCallback)
+handler.on('resize', anotherResizeCallback)
+handler.on('resize', yetAnotherResizeCallback)
 ...
 
-handler.addToHandler('scroll', scrollCallback)
-handler.addToHandler('scroll', anotherScrollCallback)
-handler.addToHandler('scroll', yetAnotherScrollCallback)
+handler.on('scroll', scrollCallback)
+handler.on('scroll', anotherScrollCallback)
+handler.on('scroll', yetAnotherScrollCallback)
 ...
 
 handler.requestResize()
@@ -40,7 +40,7 @@ Trigger all the resize handlers.
 ### ResizeScrollHandler.requestSCroll()
 Trigger all the scroll handlers.
 
-### ResizeScrollHandler.addToHandler(type, fn)
+### ResizeScrollHandler.on(type, fn)
 Add an event handler.
 
 **Params**

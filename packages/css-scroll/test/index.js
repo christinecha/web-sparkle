@@ -1,7 +1,7 @@
-var CSSScroll = require('../index')
+const CSSScroll = require('../index')
 
-document.addEventListener('click', function(e) {
-  var target
+document.addEventListener('click', (e) => {
+  let target
 
   if (e.target.classList.contains('scroll-down')) {
     target = document.body.clientHeight - window.innerHeight

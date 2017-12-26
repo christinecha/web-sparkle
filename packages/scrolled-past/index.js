@@ -14,8 +14,8 @@ class ScrolledPast {
 
     // Use ResizeScrollHandler to prevent unnecessary event handling. No long frames!
     this.handler = new ResizeScrollHandler()
-    this.handler.addToHandler('resize', this.updateData)
-    this.handler.addToHandler('scroll', this.updateView)
+    this.handler.on('resize', this.updateData)
+    this.handler.on('scroll', this.updateView)
 
     // Fire off the preliminary handlers.
     this.handler.requestResize()

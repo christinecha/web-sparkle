@@ -11,7 +11,7 @@ class ResizeScrollHandler {
     this.requestResize = this.requestResize.bind(this)
     this.handleScroll  = this.handleScroll.bind(this)
     this.handleResize  = this.handleResize.bind(this)
-    this.addToHandler  = this.addToHandler.bind(this)
+    this.on            = this.on.bind(this)
 
     // States.
     this.isTicking = false
@@ -72,7 +72,7 @@ class ResizeScrollHandler {
     this.currentPageYOffset = window.pageYOffset
   }
 
-  addToHandler(type, fn) {
+  on(type, fn) {
     let fnName
 
     if (type === 'resize') fnName = 'handleResize'
