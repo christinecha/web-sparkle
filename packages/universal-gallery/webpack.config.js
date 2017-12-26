@@ -27,7 +27,6 @@ module.exports = [
     },
     output: {
       filename: 'dist/[name].js',
-      libraryTarget: 'commonjs2'
     },
     devServer: {
       contentBase: __dirname + '/',
