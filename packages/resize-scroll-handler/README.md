@@ -37,7 +37,7 @@ handler.requestScroll()
 ### ResizeScrollHandler.requestResize()
 Trigger all the resize handlers.
 
-### ResizeScrollHandler.requestSCroll()
+### ResizeScrollHandler.requestScroll()
 Trigger all the scroll handlers.
 
 ### ResizeScrollHandler.on(type, fn)
