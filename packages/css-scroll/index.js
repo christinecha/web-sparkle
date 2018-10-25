@@ -1,7 +1,7 @@
 const getPrefixedStyle = require('get-prefixed-style')
 
-const transition = getPrefixedStyle('transition')
-const transform = getPrefixedStyle('transform')
+let transition
+let transform
 
 const disableScroll = (e) => {
   e.preventDefault()
@@ -21,11 +21,14 @@ const disableScroll = (e) => {
 **/
 
 const CSSScroll = (target, duration = 500, scrollElement = document.body) => {
+  if (!transform) transform = getPrefixedStyle('transform')
+  if (!transition) transition = getPrefixedStyle('transition')
+
   return new Promise((resolve, reject) => {
 
     const distance = window.pageYOffset - target
 
-    scrollElement.style[transition] = `${transform} ${duration}ms cubic-bezier(0.694, 0.0482, 0.335, 1.000)`
+    scrollElement.style[transition] = `${transform} ${duration}ms ease-in-out`
     scrollElement.style[transform] = `translate3d(0, ${distance}px, 0)`
     scrollElement.clientHeight // force reflow
 

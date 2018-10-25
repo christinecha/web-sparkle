@@ -1,3 +1,4 @@
+module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -60,22 +61,52 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/dist/";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+function getCapitalizedStyle(style) {
+  var chars = style.split('')
+  var firstChar = chars[0]
+  chars = chars.splice(1)
+  return firstChar.toUpperCase() + chars.join('')
+}
+
+function getPrefixedStyle(style) {
+  var capitalizedStyle = getCapitalizedStyle(style)
+  var styleObj = document.body.style
+
+  if (style in styleObj)                       return style
+  if ('Webkit' + capitalizedStyle in styleObj) return 'Webkit' + capitalizedStyle
+  if ('Moz' + capitalizedStyle    in styleObj) return 'Moz' + capitalizedStyle
+  if ('Ms' + capitalizedStyle     in styleObj) return 'Ms' + capitalizedStyle
+  if ('O' + capitalizedStyle      in styleObj) return 'O' + capitalizedStyle
+
+  throw Error('Could not find style "' + style + '", prefixed or otherwise.')
+}
+
+module.exports = getPrefixedStyle
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const getPrefixedStyle = __webpack_require__(1);
+"use strict";
 
-const transition = getPrefixedStyle('transition');
-const transform = getPrefixedStyle('transform');
 
-const disableScroll = e => {
+var getPrefixedStyle = __webpack_require__(0);
+
+var transition = void 0;
+var transform = void 0;
+
+var disableScroll = function disableScroll(e) {
   e.preventDefault();
   return;
 };
@@ -92,16 +123,22 @@ const disableScroll = e => {
   * @param scrollElement {DOMElement} | The parent container that the fake scroll will be applied to.
 **/
 
-const CSSScroll = (target, duration = 500, scrollElement = document.body) => {
-  return new Promise((resolve, reject) => {
+var CSSScroll = function CSSScroll(target) {
+  var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
+  var scrollElement = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document.body;
 
-    const distance = window.pageYOffset - target;
+  if (!transform) transform = getPrefixedStyle('transform');
+  if (!transition) transition = getPrefixedStyle('transition');
 
-    scrollElement.style[transition] = `${transform} ${duration}ms cubic-bezier(0.694, 0.0482, 0.335, 1.000)`;
-    scrollElement.style[transform] = `translate3d(0, ${distance}px, 0)`;
+  return new Promise(function (resolve, reject) {
+
+    var distance = window.pageYOffset - target;
+
+    scrollElement.style[transition] = transform + ' ' + duration + 'ms cubic-bezier(0.694, 0.0482, 0.335, 1.000)';
+    scrollElement.style[transform] = 'translate3d(0, ' + distance + 'px, 0)';
     scrollElement.clientHeight; // force reflow
 
-    const handleTransitionEnd = e => {
+    var handleTransitionEnd = function handleTransitionEnd(e) {
       if (e.target !== scrollElement) return;
       if (e.propertyName !== transform) return;
 
@@ -126,32 +163,6 @@ const CSSScroll = (target, duration = 500, scrollElement = document.body) => {
 };
 
 module.exports = CSSScroll;
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-function getCapitalizedStyle(style) {
-  var chars = style.split('');
-  var firstChar = chars[0];
-  chars = chars.splice(1);
-  return firstChar.toUpperCase() + chars.join('');
-}
-
-function getPrefixedStyle(style) {
-  var capitalizedStyle = getCapitalizedStyle(style);
-  var styleObj = document.body.style;
-
-  if (style in styleObj) return style;
-  if ('Webkit' + capitalizedStyle in styleObj) return 'Webkit' + capitalizedStyle;
-  if ('Moz' + capitalizedStyle in styleObj) return 'Moz' + capitalizedStyle;
-  if ('Ms' + capitalizedStyle in styleObj) return 'Ms' + capitalizedStyle;
-  if ('O' + capitalizedStyle in styleObj) return 'O' + capitalizedStyle;
-
-  throw Error('Could not find style "' + style + '", prefixed or otherwise.');
-}
-
-module.exports = getPrefixedStyle;
 
 /***/ })
 /******/ ]);
