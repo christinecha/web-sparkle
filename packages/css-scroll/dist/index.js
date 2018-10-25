@@ -63,38 +63,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-function getCapitalizedStyle(style) {
-  var chars = style.split('')
-  var firstChar = chars[0]
-  chars = chars.splice(1)
-  return firstChar.toUpperCase() + chars.join('')
-}
-
-function getPrefixedStyle(style) {
-  var capitalizedStyle = getCapitalizedStyle(style)
-  var styleObj = document.body.style
-
-  if (style in styleObj)                       return style
-  if ('Webkit' + capitalizedStyle in styleObj) return 'Webkit' + capitalizedStyle
-  if ('Moz' + capitalizedStyle    in styleObj) return 'Moz' + capitalizedStyle
-  if ('Ms' + capitalizedStyle     in styleObj) return 'Ms' + capitalizedStyle
-  if ('O' + capitalizedStyle      in styleObj) return 'O' + capitalizedStyle
-
-  throw Error('Could not find style "' + style + '", prefixed or otherwise.')
-}
-
-module.exports = getPrefixedStyle
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -103,7 +76,7 @@ module.exports = getPrefixedStyle
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var getPrefixedStyle = __webpack_require__(0);
+var getPrefixedStyle = __webpack_require__(1);
 
 var transition = void 0;
 var transform = void 0;
@@ -125,7 +98,7 @@ var disableScroll = function disableScroll(e) {
   * @param scrollElement {DOMElement} | The parent container that the fake scroll will be applied to.
 **/
 
-var CSSScroll = function CSSScroll(target) {
+var CSSScroll = function CSSScroll(_target) {
   var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
   var scrollElement = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document.body;
 
@@ -134,6 +107,8 @@ var CSSScroll = function CSSScroll(target) {
 
   return new Promise(function (resolve, reject) {
 
+    var remainingRoom = scrollElement.clientHeight - window.innerHeight - window.pageYOffset;
+    var target = Math.min(remainingRoom, _target);
     var distance = window.pageYOffset - target;
 
     scrollElement.style[transition] = transform + ' ' + duration + 'ms ease-in-out';
@@ -166,6 +141,33 @@ var CSSScroll = function CSSScroll(target) {
 
 exports.default = CSSScroll;
 module.exports = exports['default'];
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+function getCapitalizedStyle(style) {
+  var chars = style.split('')
+  var firstChar = chars[0]
+  chars = chars.splice(1)
+  return firstChar.toUpperCase() + chars.join('')
+}
+
+function getPrefixedStyle(style) {
+  var capitalizedStyle = getCapitalizedStyle(style)
+  var styleObj = document.body.style
+
+  if (style in styleObj)                       return style
+  if ('Webkit' + capitalizedStyle in styleObj) return 'Webkit' + capitalizedStyle
+  if ('Moz' + capitalizedStyle    in styleObj) return 'Moz' + capitalizedStyle
+  if ('Ms' + capitalizedStyle     in styleObj) return 'Ms' + capitalizedStyle
+  if ('O' + capitalizedStyle      in styleObj) return 'O' + capitalizedStyle
+
+  throw Error('Could not find style "' + style + '", prefixed or otherwise.')
+}
+
+module.exports = getPrefixedStyle
+
 
 /***/ })
 /******/ ]);
