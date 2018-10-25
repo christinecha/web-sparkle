@@ -56,4 +56,4 @@ const CSSScroll = (target, duration = 500, scrollElement = document.body) => {
   })
 }
 
-module.exports = CSSScroll
+export default CSSScroll
