@@ -1,6 +1,6 @@
 {
   "name": "css-scroll",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Forget that jittery JS-powered animated scroll. Get it buttery smooth with some CSS magic.",
   "main": "dist/index.js",
   "scripts": {

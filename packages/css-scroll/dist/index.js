@@ -101,6 +101,9 @@ module.exports = getPrefixedStyle
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var getPrefixedStyle = __webpack_require__(0);
 
 var transition = void 0;
@@ -134,7 +137,7 @@ var CSSScroll = function CSSScroll(target) {
 
     var distance = window.pageYOffset - target;
 
-    scrollElement.style[transition] = transform + ' ' + duration + 'ms cubic-bezier(0.694, 0.0482, 0.335, 1.000)';
+    scrollElement.style[transition] = transform + ' ' + duration + 'ms ease-in-out';
     scrollElement.style[transform] = 'translate3d(0, ' + distance + 'px, 0)';
     scrollElement.clientHeight; // force reflow
 
@@ -162,7 +165,8 @@ var CSSScroll = function CSSScroll(target) {
   });
 };
 
-module.exports = CSSScroll;
+exports.default = CSSScroll;
+module.exports = exports['default'];
 
 /***/ })
 /******/ ]);
