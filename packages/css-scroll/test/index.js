@@ -1,4 +1,4 @@
-const CSSScroll = require('../index')
+import CSSScroll from '../dist/index'
 
 document.addEventListener('click', (e) => {
   let target
