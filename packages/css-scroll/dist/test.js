@@ -63,14 +63,14 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getPrefixedStyle = __webpack_require__(1);
+var getPrefixedStyle = __webpack_require__(2);
 
 var transition;
 var transform;
@@ -136,6 +136,26 @@ module.exports = CSSScroll;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const CSSScroll = __webpack_require__(0);
+
+document.addEventListener('click', function (e) {
+  var target;
+
+  if (e.target.classList.contains('scroll-down')) {
+    target = document.body.clientHeight;
+  } else if (e.target.classList.contains('scroll-up')) {
+    target = 0;
+  } else {
+    return;
+  }
+
+  CSSScroll(target, 800, document.body);
+});
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
 function getCapitalizedStyle(style) {
@@ -160,26 +180,6 @@ function getPrefixedStyle(style) {
 
 module.exports = getPrefixedStyle
 
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const CSSScroll = __webpack_require__(0);
-
-document.addEventListener('click', function (e) {
-  var target;
-
-  if (e.target.classList.contains('scroll-down')) {
-    target = document.body.clientHeight;
-  } else if (e.target.classList.contains('scroll-up')) {
-    target = 0;
-  } else {
-    return;
-  }
-
-  CSSScroll(target, 800, document.body);
-});
 
 /***/ })
 /******/ ]);

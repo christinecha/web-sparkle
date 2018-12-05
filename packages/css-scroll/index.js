@@ -20,7 +20,10 @@ function disableScroll (e) {
   * @param scrollElement {DOMElement} | The parent container that the fake scroll will be applied to.
 **/
 
-function CSSScroll (_target, duration = 500, scrollElement = document.body) {
+function CSSScroll (_target, duration, scrollElement) {
+  if (duration === undefined) duration = 500
+  if (scrollElement === undefined) scrollElement = document.body
+
   if (!transform) transform = getPrefixedStyle('transform')
   if (!transition) transition = getPrefixedStyle('transition')
 
