@@ -1,9 +1,8 @@
 {
   "name": "css-scroll",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Forget that jittery JS-powered animated scroll. Get it buttery smooth with some CSS magic.",
-  "main": "dist/index.js",
-  "module": "./index.js",
+  "main": "index.js",
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server",

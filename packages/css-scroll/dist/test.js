@@ -70,21 +70,15 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 var getPrefixedStyle = __webpack_require__(1);
 
-var transition = void 0;
-var transform = void 0;
+var transition;
+var transform;
 
-var disableScroll = function disableScroll(e) {
+function disableScroll(e) {
   e.preventDefault();
   return;
-};
+}
 
 /** CSS Scroll!
   *
@@ -98,29 +92,28 @@ var disableScroll = function disableScroll(e) {
   * @param scrollElement {DOMElement} | The parent container that the fake scroll will be applied to.
 **/
 
-var CSSScroll = function CSSScroll(_target) {
-  var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
-  var scrollElement = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document.body;
-
+function CSSScroll(_target, duration = 500, scrollElement = document.body) {
   if (!transform) transform = getPrefixedStyle('transform');
   if (!transition) transition = getPrefixedStyle('transition');
 
   return new Promise(function (resolve, reject) {
 
-    var remainingRoom = scrollElement.clientHeight - window.innerHeight - window.pageYOffset;
+    var remainingRoom = scrollElement.clientHeight - window.innerHeight;
     var target = Math.min(remainingRoom, _target);
     var distance = window.pageYOffset - target;
 
     scrollElement.style[transition] = transform + ' ' + duration + 'ms ease-in-out';
     scrollElement.style[transform] = 'translate3d(0, ' + distance + 'px, 0)';
+    scrollElement.style['pointer-events'] = 'none';
     scrollElement.clientHeight; // force reflow
 
-    var handleTransitionEnd = function handleTransitionEnd(e) {
+    function handleTransitionEnd(e) {
       if (e.target !== scrollElement) return;
       if (e.propertyName !== transform) return;
 
-      scrollElement.style[transition] = 'none !important';
-      scrollElement.style[transform] = null;
+      scrollElement.style.removeProperty(transition);
+      scrollElement.style.removeProperty(transform);
+      scrollElement.style.removeProperty('pointer-events');
 
       window.scrollTo(0, target);
 
@@ -128,19 +121,18 @@ var CSSScroll = function CSSScroll(_target) {
 
       resolve();
 
-      scrollElement.style.overflow = 'visible';
+      scrollElement.style.removeProperty('overflow');
       window.removeEventListener('scroll', disableScroll);
       scrollElement.removeEventListener('transitionend', handleTransitionEnd);
-    };
+    }
 
     scrollElement.style.overflow = 'hidden';
     window.addEventListener('scroll', disableScroll);
     scrollElement.addEventListener('transitionend', handleTransitionEnd);
   });
-};
+}
 
-exports.default = CSSScroll;
-module.exports = exports['default'];
+module.exports = CSSScroll;
 
 /***/ }),
 /* 1 */
@@ -173,17 +165,10 @@ module.exports = getPrefixedStyle
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-var _index = __webpack_require__(0);
-
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+const CSSScroll = __webpack_require__(0);
 
 document.addEventListener('click', function (e) {
-  var target = void 0;
+  var target;
 
   if (e.target.classList.contains('scroll-down')) {
     target = document.body.clientHeight;
@@ -193,7 +178,7 @@ document.addEventListener('click', function (e) {
     return;
   }
 
-  (0, _index2.default)(target, 800, document.body);
+  CSSScroll(target, 800, document.body);
 });
 
 /***/ })

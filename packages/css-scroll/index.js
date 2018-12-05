@@ -1,9 +1,9 @@
-const getPrefixedStyle = require('get-prefixed-style')
+var getPrefixedStyle = require('get-prefixed-style')
 
-let transition
-let transform
+var transition
+var transform
 
-const disableScroll = (e) => {
+function disableScroll (e) {
   e.preventDefault()
   return
 }
@@ -20,22 +20,22 @@ const disableScroll = (e) => {
   * @param scrollElement {DOMElement} | The parent container that the fake scroll will be applied to.
 **/
 
-const CSSScroll = (_target, duration = 500, scrollElement = document.body) => {
+function CSSScroll (_target, duration = 500, scrollElement = document.body) {
   if (!transform) transform = getPrefixedStyle('transform')
   if (!transition) transition = getPrefixedStyle('transition')
 
-  return new Promise((resolve, reject) => {
+  return new Promise(function(resolve, reject) {
 
-    const remainingRoom = scrollElement.clientHeight - window.innerHeight
-    const target = Math.min(remainingRoom, _target)
-    const distance = window.pageYOffset - target
+    var remainingRoom = scrollElement.clientHeight - window.innerHeight
+    var target = Math.min(remainingRoom, _target)
+    var distance = window.pageYOffset - target
 
-    scrollElement.style[transition] = `${transform} ${duration}ms ease-in-out`
-    scrollElement.style[transform] = `translate3d(0, ${distance}px, 0)`
-    scrollElement.style['pointer-events'] = 'none'
+    scrollElement.style[transition] = transform + ' ' + duration + 'ms ease-in-out';
+    scrollElement.style[transform] = 'translate3d(0, ' + distance + 'px, 0)';
+    scrollElement.style['pointer-events'] = 'none';
     scrollElement.clientHeight // force reflow
 
-    const handleTransitionEnd = (e) => {
+    function handleTransitionEnd (e) {
       if (e.target !== scrollElement) return
       if (e.propertyName !== transform) return
 
@@ -60,4 +60,4 @@ const CSSScroll = (_target, duration = 500, scrollElement = document.body) => {
   })
 }
 
-export default CSSScroll
+module.exports = CSSScroll

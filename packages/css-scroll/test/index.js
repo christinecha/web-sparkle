@@ -1,7 +1,7 @@
-import CSSScroll from '../index'
+const CSSScroll = require('../index')
 
-document.addEventListener('click', (e) => {
-  let target
+document.addEventListener('click', function(e) {
+  var target
 
   if (e.target.classList.contains('scroll-down')) {
     target = document.body.clientHeight

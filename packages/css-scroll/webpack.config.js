@@ -1,7 +1,6 @@
 module.exports = [
   {
     entry: {
-      index: './index',
       test: './test'
     },
     output: {
