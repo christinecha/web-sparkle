@@ -28,10 +28,13 @@ function CSSScroll (_target, duration, scrollElement) {
   if (!transition) transition = getPrefixedStyle('transition')
 
   return new Promise(function(resolve, reject) {
+    var scrollY = window.pageYOffset
+
+    if (scrollY === _target) return resolve()
 
     var remainingRoom = scrollElement.clientHeight - window.innerHeight
     var target = Math.min(remainingRoom, _target)
-    var distance = window.pageYOffset - target
+    var distance = scrollY - target
 
     scrollElement.style[transition] = transform + ' ' + duration + 'ms ease-in-out';
     scrollElement.style[transform] = 'translate3d(0, ' + distance + 'px, 0)';
